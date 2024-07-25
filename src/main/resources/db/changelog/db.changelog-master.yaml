@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - include:
+      file: db/changelog/1-create-table-users.sql
+  - include:
+      file: db/changelog/2-create-table-tickets.sql
+  - include:
+      file: db/changelog/3-create-table-events.sql
