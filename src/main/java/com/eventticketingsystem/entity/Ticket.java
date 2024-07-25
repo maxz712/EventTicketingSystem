@@ -1,11 +1,18 @@
 package com.eventticketingsystem.entity;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.Data;
+import org.hibernate.annotations.NaturalId;
 import org.hibernate.generator.EventType;
 
 import java.util.Date;
 
+@Entity
+@Data
+@Table(name = "TICKET")
 public class Ticket {
 
     @Id
@@ -16,6 +23,7 @@ public class Ticket {
     @Column(name = "EVENT_ID")
     private Long eventId;
 
+    @NaturalId
     @Column(name = "EVENT_NAME")
     private String eventName;
 
@@ -28,6 +36,7 @@ public class Ticket {
     @Column(name = "USER_NAME")
     private String userName;
 
+    @NaturalId
     @Column(name = "EMAIL")
     private String email;
 }
