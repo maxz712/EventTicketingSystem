@@ -11,7 +11,7 @@ import org.hibernate.generator.EventType;
 
 @Entity
 @Data
-@Table(name = "USER")
+@Table(name = "USERS")
 public class User {
 
     @Id

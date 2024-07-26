@@ -28,6 +28,7 @@ public class TicketsService {
             throw new NotFoundException("No Data found for " + email);
         }
 
+        // Put all the tickets for the user in a response object
         TicketResponse ticketResponse = new TicketResponse();
         ticketResponse.setTickets(tickets);
         ticketResponse.setCount(tickets.size());
@@ -42,10 +43,12 @@ public class TicketsService {
         if (event.isEmpty()) {
             throw new NotFoundException("No Data found for " + ticketRequest.getEventName());
         }
+        // Update current capacity the ticket is for
         Event evnt = event.get();
         evnt.setCurrentCapacity(evnt.getCurrentCapacity() - 1);
         eventsRepository.save(evnt);
 
+        // Create new ticket for the requested event and user
         Ticket ticket = new Ticket();
         ticket.setEventName(ticketRequest.getEventName());
         ticket.setUserName(ticketRequest.getUserName());
@@ -54,8 +57,6 @@ public class TicketsService {
         ticket.setStartTime(evnt.getStartTime());
         ticket.setEndTime(evnt.getEndTime());
 
-        ticketsRepository.save(ticket);
-
-        return ticket;
+        return ticketsRepository.save(ticket);
     }
 }

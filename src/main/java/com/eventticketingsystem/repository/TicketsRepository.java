@@ -1,7 +1,6 @@
 package com.eventticketingsystem.repository;
 
 import com.eventticketingsystem.constants.QueryConstants;
-import com.eventticketingsystem.entity.Event;
 import com.eventticketingsystem.entity.Ticket;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
