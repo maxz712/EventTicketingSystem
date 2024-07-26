@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb;MODE=MYSQL;DB_CLOSE_ON_EXIT=FALSE
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: none
+  liquibase:
+    parameters:
+      textColumnType: TEXT
+    contexts: test
+    enabled: true
+    change-log: classpath:db/changelog/db.changelog-test.yaml
+

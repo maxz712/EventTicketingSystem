@@ -13,7 +13,7 @@ import java.util.Date;
 
 @Entity
 @Data
-@Table(name = "TICKET")
+@Table(name = "TICKETS")
 public class Ticket {
 
     @Id

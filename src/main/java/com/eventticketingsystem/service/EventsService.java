@@ -3,7 +3,6 @@ package com.eventticketingsystem.service;
 import com.eventticketingsystem.entity.Event;
 import com.eventticketingsystem.entity.EventRequest;
 import com.eventticketingsystem.entity.EventResponse;
-import com.eventticketingsystem.entity.User;
 import com.eventticketingsystem.repository.EventsRepository;
 import jakarta.validation.Valid;
 import jakarta.ws.rs.NotFoundException;
@@ -29,6 +28,7 @@ public class EventsService {
             throw new NotFoundException("No Data found");
         }
 
+        // Puts all the events in a response object
         EventResponse eventResponse = new EventResponse();
         eventResponse.setEvents(allEvents);
         eventResponse.setCount(allEvents.size());

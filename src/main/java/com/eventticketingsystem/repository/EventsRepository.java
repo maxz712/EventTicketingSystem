@@ -1,12 +1,9 @@
 package com.eventticketingsystem.repository;
 
-
 import com.eventticketingsystem.constants.QueryConstants;
 import com.eventticketingsystem.entity.Event;
-import com.eventticketingsystem.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;

@@ -1,6 +1,5 @@
 package com.eventticketingsystem.constants;
 
-
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 
@@ -12,7 +11,7 @@ public class QueryConstants {
                 SELECT
                     *
                 FROM
-                    USER
+                    USERS
                 WHERE
                     EMAIL = :email
             """;
@@ -22,7 +21,7 @@ public class QueryConstants {
                 SELECT
                     *
                 FROM
-                    EVENT
+                    EVENTS
                 WHERE
                     END_TIME > UTC_TIMESTAMP();
             """;
@@ -32,7 +31,7 @@ public class QueryConstants {
                 SELECT
                     *
                 FROM
-                    EVENT
+                    EVENTS
                 WHERE
                         NAME = :name
                     AND END_TIME > UTC_TIMESTAMP();
@@ -43,7 +42,7 @@ public class QueryConstants {
                 SELECT
                     *
                 FROM
-                    EVENT
+                    EVENTS
                 WHERE
                         NAME = :name
                     AND END_TIME > UTC_TIMESTAMP()
@@ -55,7 +54,7 @@ public class QueryConstants {
                 SELECT
                     *
                 FROM
-                    TICKET
+                    TICKETS
                 WHERE
                         EMAIL = :email
                     AND END_TIME > UTC_TIMESTAMP();
