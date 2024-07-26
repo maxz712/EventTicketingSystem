@@ -1,7 +1,7 @@
 -- liquibase formatted sql
 -- changeset max:2 context:p1 splitStatement:false
 
-CREATE TABLE TICKET (
+CREATE TABLE TICKETS (
     ID                  BIGINT          NOT NULL AUTO_INCREMENT,
     EVENT_NAME          VARCHAR(50),
     START_TIME          DATETIME,

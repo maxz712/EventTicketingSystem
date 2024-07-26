@@ -1,7 +1,7 @@
 -- liquibase formatted sql
 -- changeset max:3 context:p1 splitStatement:false
 
-CREATE TABLE EVENT (
+CREATE TABLE EVENTS (
     ID                  BIGINT          NOT NULL AUTO_INCREMENT,
     NAME                VARCHAR(50),
     CREATE_TIME         DATETIME,
