@@ -29,20 +29,11 @@ public class UsersController {
 
     @GetMapping("/{email}")
     public ResponseEntity<User> getUser(@PathVariable(value = "email") @NotBlank String email) {
-        User user = usersService.fetchUserByEmail(email);
-        return new ResponseEntity<>(user, HttpStatus.OK);
+        return new ResponseEntity<>(usersService.getUserByEmail(email), HttpStatus.OK);
     }
 
-    @PutMapping("/{email}")
-    public ResponseEntity<User> updateUser(@PathVariable(value = "email") @NotBlank String email,
-                                           @Valid @RequestBody UserRequest userRequest) {
-        User user = usersService.updateUser(email, userRequest);
-        return new ResponseEntity<>(user, HttpStatus.OK);
-    }
-
-    @PostMapping("/")
+    @PostMapping
     public ResponseEntity<User> createUser(@Valid @RequestBody UserRequest userRequest) {
-        User user = usersService.createUser(userRequest);
-        return new ResponseEntity<>(user, HttpStatus.CREATED);
+        return new ResponseEntity<>(usersService.createUser(userRequest), HttpStatus.CREATED);
     }
 }

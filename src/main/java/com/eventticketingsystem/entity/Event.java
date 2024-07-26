@@ -24,12 +24,14 @@ public class Event {
     @Column(name = "NAME")
     private String name;
 
-    @Column(name = "CREATE_DATE")
-    private Date createDate;
+    @Column(name = "CREATE_TIME")
+    private Date createTime;
 
-    @NaturalId
-    @Column(name = "EVENT_DATE")
-    private Date eventDate;
+    @Column(name = "START_TIME")
+    private Date startTime;
+
+    @Column(name = "END_TIME")
+    private Date endTime;
 
     @Column(name = "CURRENT_CAPACITY")
     private Integer currentCapacity;

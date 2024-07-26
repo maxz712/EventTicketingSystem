@@ -16,12 +16,14 @@ import java.time.Instant;
 @Retention(RetentionPolicy.RUNTIME)
 @Constraint(validatedBy = {ValidEventDates.Validator.class})
 public @interface ValidEventDates {
-    String message() default "{date.inPast}";
+    String message() default "{date.endBeforeStart}";
 
     Class<?>[] groups() default {};
     Class<? extends Payload>[] payload() default {};
 
     class Validator implements ConstraintValidator<ValidEventDates, EventRequest> {
+
+        String startDateInPast = "{date.inPast}";
 
         public void customMessageForValidation(ConstraintValidatorContext constraintContext, String message) {
             // Remove Default
@@ -34,15 +36,19 @@ public @interface ValidEventDates {
         @Override
         public boolean isValid(EventRequest eventRequest, ConstraintValidatorContext constraintValidatorContext) {
             // Don't complain if eventDate is null since those errors will be caught elsewhere
-            if (eventRequest.getEventDate() == null)
+            if (eventRequest.getStartTime() == null || eventRequest.getEndTime() == null)
                 return true;
 
-            Instant eventDate = eventRequest.getEventDate().toInstant();
+            Instant startTime = eventRequest.getStartTime().toInstant();
+            Instant endTime = eventRequest.getEndTime().toInstant();
 
             // Validate Event is not created in the past
-            // Add 1 hour leniency window since:
-            //  1. There may be delay between event creating request and us receiving it
-            //  2.
+            if (startTime.isBefore(Instant.now())) {
+                customMessageForValidation(constraintValidatorContext, startDateInPast);
+                return false;
+            }
+
+            return startTime.isBefore(endTime);
         }
     }
 }
