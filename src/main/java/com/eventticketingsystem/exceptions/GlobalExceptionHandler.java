@@ -82,7 +82,7 @@ public class GlobalExceptionHandler {
     // Handle Internal Server Error | 500
     @ExceptionHandler({RuntimeException.class, ServiceException.class})
     ResponseEntity<CommonResponseBody> handleRuntimeException(RuntimeException e) {
-        ErrorResponse errorResponse = new ErrorResponse(List.of(new Error(HttpStatus.INTERNAL_SERVER_ERROR.name(), HttpStatus.INTERNAL_SERVER_ERROR.value(), requestBindingException.getMessage())));
+        ErrorResponse errorResponse = new ErrorResponse(List.of(new Error(HttpStatus.INTERNAL_SERVER_ERROR.name(), HttpStatus.INTERNAL_SERVER_ERROR.value(), e.getMessage())));
         CommonResponseBody commonResponseBody = new CommonResponseBody(null, null, errorResponse);
         return new ResponseEntity<>(commonResponseBody, HttpStatus.INTERNAL_SERVER_ERROR);
     }
