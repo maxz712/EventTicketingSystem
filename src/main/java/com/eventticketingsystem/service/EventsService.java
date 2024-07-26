@@ -5,6 +5,7 @@ import com.eventticketingsystem.entity.EventRequest;
 import com.eventticketingsystem.entity.EventResponse;
 import com.eventticketingsystem.entity.User;
 import com.eventticketingsystem.repository.EventsRepository;
+import jakarta.validation.Valid;
 import jakarta.ws.rs.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -45,7 +46,7 @@ public class EventsService {
         return event.get();
     }
 
-    public Event createEvent(EventRequest eventRequest) {
+    public Event createEvent(@Valid EventRequest eventRequest) {
         Optional<Event> event = eventsRepository.findByName(eventRequest.getName());
 
         // Checks if event with the specific name already exists

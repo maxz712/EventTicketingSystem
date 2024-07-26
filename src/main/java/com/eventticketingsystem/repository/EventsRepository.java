@@ -20,4 +20,8 @@ public interface EventsRepository extends JpaRepository<Event, Integer> {
 
     @Query(value = QueryConstants.SELECT_EVENT_BY_NAME, nativeQuery = true)
     Optional<Event> findByName(String name);
+
+    @Query(value = QueryConstants.SELECT_AVAILABLE_EVENT_BY_NAME, nativeQuery = true)
+    Optional<Event> findAvailableByName(String name);
+
 }

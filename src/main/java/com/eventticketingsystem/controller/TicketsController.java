@@ -25,8 +25,8 @@ public class TicketsController {
         return new ResponseEntity<>(ticketsService.createTicket(ticketRequest), HttpStatus.OK);
     }
 
-    @GetMapping
-    public ResponseEntity<TicketResponse> getTicket(@RequestParam(value = "user_name") @NotBlank String userName) {
-        return new ResponseEntity<>(ticketsService.getTicketsByUserName(userName), HttpStatus.OK);
+    @GetMapping("/{email}")
+    public ResponseEntity<TicketResponse> getTicket(@PathVariable(value = "email") @NotBlank String email) {
+        return new ResponseEntity<>(ticketsService.getTicketsByUserName(email), HttpStatus.OK);
     }
 }

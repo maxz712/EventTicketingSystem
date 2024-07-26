@@ -1,5 +1,6 @@
 package com.eventticketingsystem.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -16,22 +17,20 @@ import java.util.Date;
 public class Ticket {
 
     @Id
+    @JsonIgnore
     @org.hibernate.annotations.Generated(event = EventType.INSERT)
     @Column(name = "ID")
     private Long id;
-
-    @Column(name = "EVENT_ID")
-    private Long eventId;
 
     @NaturalId
     @Column(name = "EVENT_NAME")
     private String eventName;
 
-    @Column(name = "EVENT_DATE")
-    private Date eventDate;
+    @Column(name = "START_TIME")
+    private Date startTime;
 
-    @Column(name = "USER_ID")
-    private Long userId;
+    @Column(name = "END_TIME")
+    private Date endTime;
 
     @Column(name = "USER_NAME")
     private String userName;

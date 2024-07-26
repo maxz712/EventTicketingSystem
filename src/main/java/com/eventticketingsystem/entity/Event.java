@@ -1,5 +1,6 @@
 package com.eventticketingsystem.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -16,6 +17,7 @@ import java.util.Date;
 public class Event {
 
     @Id
+    @JsonIgnore
     @org.hibernate.annotations.Generated(event = EventType.INSERT)
     @Column(name = "ID")
     private Long id;

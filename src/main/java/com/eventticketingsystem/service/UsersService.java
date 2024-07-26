@@ -3,6 +3,7 @@ package com.eventticketingsystem.service;
 import com.eventticketingsystem.entity.UserRequest;
 import com.eventticketingsystem.repository.UsersRepository;
 import com.eventticketingsystem.entity.User;
+import jakarta.validation.Valid;
 import jakarta.ws.rs.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -29,7 +30,7 @@ public class UsersService {
         return user.get();
     }
 
-    public User createUser(UserRequest userRequest) {
+    public User createUser(@Valid UserRequest userRequest) {
         Optional<User> user = usersRepository.findByEmail(userRequest.getEmail());
 
         // Checks if user with the specific email already exists
