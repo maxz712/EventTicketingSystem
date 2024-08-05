@@ -29,7 +29,7 @@ Users:
     - ```
       {
           "name": "test1",
-          "email": ""
+          "email": "test1@test.com"
       }
 
 - GET "/v1/user/{email}"
